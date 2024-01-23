@@ -12,6 +12,7 @@ import AboutUS from './pages/AboutUs';
 import Contact from './pages/Contact';
 import ErrorPage from './pages/ErrorPage';
 import Login from './components/LoginWindow';
+import axiosConfig from './utils/axiosConfig';
 const appRouter = createBrowserRouter([
   {
   path:'/',
