@@ -1,17 +1,17 @@
 
 import './App.css';
 import AdminDashBoard from './pages/Admin';
-import LoginForm from './pages/Login';
-import Profile from './pages/Profile';
-import SignUpForm from './pages/SignUpForm';
-
+import { Provider } from 'react-redux';
+import appStore from './utils/reduxStore';
 
 function App() {
 
   return (
+    <Provider store={appStore}>
     <div className="App">
       <AdminDashBoard/>
     </div>
+    </Provider>
   );
 }
 

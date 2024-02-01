@@ -11,7 +11,7 @@ const SignUp = ()=>{
     const [message,setMessage] = useState('')
     const handleEmail = (input)=>{
         setEmail(input)
-        console.log(input)
+        
     }
     const handlePassword=(input)=>{
         setPassword(input)
@@ -21,7 +21,7 @@ const SignUp = ()=>{
             email:email,
             password:password 
         }
-        console.log(data,'=> before sending Api')
+         
         const result =await axios.post(baseUrl+'/user/registerEmail',data)
         .then((res)=> (res.data))
 

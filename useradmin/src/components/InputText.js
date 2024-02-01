@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 const InputText =(props)=>{
         const {input,name,result,type,readOnly} = props
-        console.log(props)
+         
         const[value,setValue] =useState({name:'',
 password:''})
     

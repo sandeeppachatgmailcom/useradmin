@@ -8,7 +8,7 @@ export default axios.interceptors.request.use(
           .split('; ')
           .find(row => row.startsWith('token='))
           ?.split('=')[1];
-            console.log(cookieToken)
+            
         // Attach the cookie to the request header
             config.headers.Cookies= `${cookieToken}`;
   

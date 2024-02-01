@@ -13,19 +13,27 @@ import Contact from './pages/Contact';
 import ErrorPage from './pages/ErrorPage';
 import Login from './components/LoginWindow';
 import axiosConfig from './utils/axiosConfig';
+import AdminLogin from './components/AdminLogin';
 const appRouter = createBrowserRouter([
   {
   path:'/',
   element:<LoginForm/>,
   errorElement:<ErrorPage/>,
   children:[
-    {
-      path:'/',
-      element:<Login/>
-    }
-    ,{
+  {
+    path:'/',
+    element:<Profile/>
+  },
+  {
+    path:'/login',
+    element:<Login/>
+  }
+  ,{
     path:'/adminHome',
     element:<AdminDashBoard/>
+  },{
+    path:'/admin',
+    element:<AdminLogin/>
   },
   {
     path:'/userHome',

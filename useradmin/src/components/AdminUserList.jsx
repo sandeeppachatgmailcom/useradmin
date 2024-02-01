@@ -12,7 +12,7 @@ const AdminUserList = (props)=>{
     },[])
 
     const loaduser = async ()=>{
-        console.log(baseUrl+'admin','=> userLink ')
+         
         const result =await  axios.get(baseUrl+'/admin')
         setUsers(result.data);
     }
@@ -20,7 +20,7 @@ const AdminUserList = (props)=>{
 
     })
      
-    console.log(users)
+   
     return(
         <div className="col-12   h-100">
             {users.map((item,index)=>{
@@ -35,7 +35,7 @@ const AdminUserList = (props)=>{
                     height: '50px',
                   }}
               >
-                🧑‍🚀 {item.name}
+                🧑‍🚀 {item.name?item.name:item.email}
               </button>
               
             })

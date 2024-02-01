@@ -1,13 +1,16 @@
-import Login from "../components/LoginWindow"
 import MenuBar from "../components/MenuBar"
 import { Outlet } from "react-router-dom"
+import { Provider } from "react-redux" 
+import appStore from "../utils/reduxStore"
 
 const LoginForm = ()=>{
     return(
         <div>
-            <MenuBar/>
-            <Outlet/> 
-             
+            <Provider store={appStore}>
+                
+                <MenuBar/>
+                <Outlet/> 
+            </Provider> 
         </div>
     )
 }
