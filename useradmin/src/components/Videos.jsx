@@ -1,6 +1,7 @@
-import React from "react"
+import React  from "react"
 import { connect } from "react-redux"
 import MyComponent, { FinalComponent } from "./Mycomponent"
+
 
 class ComponentVideo extends React.Component{
 constructor(props){

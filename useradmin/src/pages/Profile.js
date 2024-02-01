@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import ImageBar from "../components/ImageBar"
 import InputText from "../components/InputText"
 import MenuBar from "../components/MenuBar"
@@ -18,9 +18,13 @@ import Photos from "../components/Photos"
 import Videos from "../components/Videos"
 import ComponentVideo from "../components/Videos"
 
+import MycontextProvider from "../components/ContextProvider"
+import Mycontext from "../components/ContextProvider"
+
 
 
 const Profile = () => {
+    
     const navigate = useNavigate();
     const [myuser, setMyuser] = useState('')
     const [name, setName] = useState('')
@@ -34,8 +38,17 @@ const Profile = () => {
     const [imageUrl, setImageUrl] = useState('')
     const [subMenu, setSubMenu] = useState('')
     const x = useSelector((state) => state.subMenu.currentTag)
+    console.log(x,'aaaaaaaa')
+    
+    const val = useContext(Mycontext)
+     
+    const [context,setContext] = useState('');
 
-
+    useEffect(()=>{
+        setContext(x)
+        console.log(context,'contextcontextcontextcontextcontext')
+    },[x])
+     
     useEffect(() => {
         fetchProfile();
     }, [])
@@ -67,13 +80,17 @@ const Profile = () => {
     }
 
     useEffect(() => {
-
-    }, [name])
+        
+    }, [])
 
     return (
+        <Mycontext.Provider value={{loginUser:context}}>
         <div>
+            
             <div className="container align-item-center justify-content-center col-12" style={{ height: '37vh' }}>
+
                 <ImageBar returnFunction={setImageUrl} email={email} imageUrl={imageUrl} />
+                
                 <div className="container d-flex border-bottom">
                     <ProfilePic returnFunction={setProfile} imageUrl={profile} email={email} />
                     <div className="container">
@@ -88,9 +105,11 @@ const Profile = () => {
             </div>
             <div className="container-flex d-flex border  border-light align-item-center justify-content-start col-12 rounded-3  " style={{ height: '5vh' }} >
                 <SubmenuBar />
+               
             </div>
             <div className="container border rounded d-flex " style={{ height: '35vh' }}>
-                <div className="container border rounded d-flex col-4 h-100 "  >
+                <div className="container border bg-secondary rounded d-flex col-4 h-100 "  >
+                 <h1> {context}</h1>
 
                 </div>
                 <div className="container border rounded d-flex col-8 h-100 flex-wrap" >
@@ -114,7 +133,9 @@ const Profile = () => {
             </div>
 
 
-        </div>
+        </div>  
+        </Mycontext.Provider>
+         
     )
 }
 

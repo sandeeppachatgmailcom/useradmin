@@ -11,6 +11,7 @@ import Cookies from 'js-cookie';
 const MenuBar = () => {
     const user = useSelector((state) => state.user.user)
     const [name,setName] = useState(user[0])
+    console.log(name,'Name ID')
     const dispatch = useDispatch()
     
     const handleLogout = () => {
@@ -18,6 +19,9 @@ const MenuBar = () => {
         dispatch(loggoutUser())
         setName(name)
     };
+    useEffect(()=>{
+        setName(user[0])
+    },[user])
 
     
     return (
@@ -31,7 +35,7 @@ const MenuBar = () => {
                 <Link to='/aboutus'> <button className='h-100 btn text-primary' >  ABOUT  </button></Link>
                 <Link to='/contactus'> <button className='h-100 btn text-primary ' > CONTACT </button> </Link>
                 <Link to='/adminHome'> <button className='h-100 btn text-primary ' > Admin </button> </Link>
-                <Link to='/admin' > <button className='h-100 btn text-primary bi bi-power circle 'onClick={ handleLogout}  >{name?.name?name.name:name?.email} </button> </Link>
+                <Link to='/admin' > <button className='h-100 btn text-primary bi bi-power circle 'onClick={ handleLogout}  >{name? name?.name: name?.email} </button> </Link>
             </div>
 
         </div>

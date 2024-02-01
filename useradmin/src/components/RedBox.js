@@ -1,4 +1,7 @@
+import { createContext } from "react";
 import InputText from "./InputText";
+
+
 
 const RedBox = ()=>{
     
