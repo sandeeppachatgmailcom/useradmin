@@ -6,7 +6,7 @@ const ImageBar = (props) => {
     const inputfile = useRef()
     const [imageUrl, setImageUrl] = useState(props?.imageUrl);
     const [image, setImage] = useState(props?.imageUrl);
-    
+    console.log(imageUrl,'iiiiiiiiiiiiiiiiiiiiii')
     const formData = new FormData()
     formData.append('file',imageUrl)
     formData.append("imageField",props.email)
@@ -16,7 +16,7 @@ const ImageBar = (props) => {
         }
         const result =await axios.post(baseUrl+'/user/saveImage  ',formData)
         .then((res)=>(res.data))
-        
+        inputfile.current.value = null
         props.returnFunction(baseUrl+result)
     }
     return (

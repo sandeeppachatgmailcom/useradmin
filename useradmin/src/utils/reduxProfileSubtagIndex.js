@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const subMenu = createSlice({
     name:'subMenu',
     initialState:{
-        currentTag:''
+        currentTag:'post'
     },
     reducers:{
          about:(state)=>{
@@ -20,9 +20,12 @@ const subMenu = createSlice({
          },
          video:(state)=>{
             state.currentTag='video'
+         },
+         reel:(state)=>{
+            state.currentTag='reel'
          }
     }
 })
 
-export const {about,post,friends,photos,video} = subMenu.actions;
+export const {about,post,friends,photos,video,reel} = subMenu.actions;
 export default subMenu.reducer;

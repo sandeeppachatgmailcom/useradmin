@@ -31,7 +31,7 @@ const MenuBar = () => {
             </div>
             <div className='container-flex d-flex justify-content-between me-5 '>
                 <Link to='/userHome'> <button className='h-100 btn text-primary' > HOME </button></Link>
-                <Link to='/'>  <button className='h-100 btn text-primary' >    </button> </Link>
+               
                 <Link to='/aboutus'> <button className='h-100 btn text-primary' >  ABOUT  </button></Link>
                 <Link to='/contactus'> <button className='h-100 btn text-primary ' > CONTACT </button> </Link>
                 <Link to='/adminHome'> <button className='h-100 btn text-primary ' > Admin </button> </Link>

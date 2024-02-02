@@ -13,9 +13,10 @@ const ProfilePic = (props) => {
     const uploadImage =async ()=>{
 
         const result =await axios.post(baseUrl+'/user/saveprofilePic  ',formData)
-        .then((res)=>(res.data))
-        inputfile.current.files=[];
-        props.returnFunction(baseUrl+result)
+        inputfile.current.value=null
+       console.log(inputfile.current.value,'size')
+        props.returnFunction(baseUrl+result.data)
+
     }
     const openInput = ()=>{
         if(!inputfile.current.files.length) inputfile.current.click();

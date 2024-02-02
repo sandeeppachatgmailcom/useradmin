@@ -20,6 +20,8 @@ import ComponentVideo from "../components/Videos"
 
 import MycontextProvider from "../components/ContextProvider"
 import Mycontext from "../components/ContextProvider"
+import Reels from "../components/Reels"
+import Reel from "../components/Reels"
 
 
 
@@ -38,29 +40,25 @@ const Profile = () => {
     const [imageUrl, setImageUrl] = useState('')
     const [subMenu, setSubMenu] = useState('')
     const x = useSelector((state) => state.subMenu.currentTag)
-    console.log(x,'aaaaaaaa')
+     
     
     const val = useContext(Mycontext)
      
     const [context,setContext] = useState('');
-
-    useEffect(()=>{
-        setContext(x)
-        console.log(context,'contextcontextcontextcontextcontext')
-    },[x])
      
     useEffect(() => {
         fetchProfile();
-    }, [])
+    }, [imageUrl])
     useEffect(() => {
         fetchProfile();
 
     }, [ImageBar])
     const fetchProfile = async () => {
         try {
-            const result = await axios.get(baseUrl + '/user/Profile')
-                .then((res) => (res.data));
-
+            const res = await axios.get(baseUrl+'/user/Profile')
+            const result = res.data
+                // .then((res) => (res.data));
+            console.log(result ,'my test result ')
             dispatch(logginuser(result))
             if (result.success === false && !result.active) navigate('/login');
             setMyuser(result)
@@ -70,19 +68,14 @@ const Profile = () => {
             setContactNumber(result?.contactNumber)
             setPassword(result?.password)
             setImageUrl(baseUrl + result?.image)
-            setProfile(baseUrl + result?.profileImage)
-
-
-
+            setProfile(baseUrl+result?.profileImage)
+            console.log( baseUrl+result?.profileImage,imageUrl,'eree',baseUrl+result?.image,'IIIIMAGE URL')
         } catch (error) {
 
         }
     }
 
-    useEffect(() => {
-        
-    }, [])
-
+    
     return (
         <Mycontext.Provider value={{loginUser:context}}>
         <div>
@@ -123,7 +116,10 @@ const Profile = () => {
                         <Photos/>
                     ): x=== 'video'?(
                         <ComponentVideo value={[1,2,3,4,5]}/>
-                    ): null}
+                    ): x=== 'reel'?(
+                        <Reel/>
+                    ): null
+                    }
                 </div>
             </div>
 

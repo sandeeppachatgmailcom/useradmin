@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const employee = createSlice({
-    name:'employee',
+    name:'employ',
     initialState:{
         employee:['sandeep','midhun','ranjith'],
     },

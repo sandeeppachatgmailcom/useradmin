@@ -5,6 +5,7 @@ import counterSlice from "./counterSlice";
 import counterTestSlice from "./counterTestSlice";
 import subMenu from './reduxProfileSubtagIndex'
 import tabletSlize from "./tabletSlize";
+import employeeTestSlice from './employee'
 const appStore = configureStore({
     reducer:{
         user:userStoreReducer,
@@ -12,7 +13,8 @@ const appStore = configureStore({
         counter:counterSlice,
         testCounter:counterTestSlice,
         subMenu:subMenu,
-        tablet:tabletSlize
+        tablet:tabletSlize,
+        testEmployee:employeeTestSlice
     }
 })
 

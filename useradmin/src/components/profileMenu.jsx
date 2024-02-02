@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { decrement, increment } from "../utils/counterSlice"
-import { About, about, friends, photos, post, video } from "../utils/reduxProfileSubtagIndex"
+import { About, about, friends, photos, post, reel , video } from "../utils/reduxProfileSubtagIndex"
 import { useEffect, useState } from "react"
 import FriendsList from "./FriendsList"
 import { addTablet } from "../utils/tabletSlize"
@@ -23,13 +23,13 @@ const SubmenuBar = (props)=>{
                 <button onClick={()=>{props.friends()} }className={`col-1 h-100 btn ${selectedMenu=='friends'?'bg-info':'bg-light'}  text-secondary  rounded-3 m-1`}>
                     Friends
                 </button>
-                <button onClick={()=>{props.photos()} }  className={`col-1 h-100 btn ${selectedMenu=='photos'?'bg-info':'bg-light'}  text-secondary  rounded-3 m-1`}>
+                <button onClick={()=>{props.photos()}}  className={`col-1 h-100 btn ${selectedMenu=='photos'?'bg-info':'bg-light'}  text-secondary  rounded-3 m-1`}>
                     Photos
                 </button>
                 <button onClick={()=>{props.video()} } className="col-1 h-100 btn  text-secondary  bg-transition rounded-3">
                     Videos
                 </button>
-                <button className="col-1 h-100 btn  text-secondary  bg-transition rounded-3">
+                <button onClick={()=>{props.reels()}} className="col-1 h-100 btn  text-secondary  bg-transition rounded-3">
                     Reels
                 </button>
                 <button className="col-1 h-100 btn  text-secondary  bg-transition rounded-3">
@@ -52,7 +52,9 @@ const mapDispatchToProps  = (dispatch)=>{
         post: () => dispatch(post()) ,
         friends:()=>dispatch(friends()),
         photos:()=>dispatch(photos()),
-        video:()=>dispatch(video())
+        video:()=>dispatch(video()),
+        reels:()=>dispatch(reel())
+
     }
 }
 
